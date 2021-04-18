@@ -6,7 +6,13 @@
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "tsc",
-    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "git add -A src",
+    "postversion": "git push && git push --tags",
+    "patch": "npm version patch && npm publish"
   },
   "keywords": [],
   "author": "",
