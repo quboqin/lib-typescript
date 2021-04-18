@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "outDir": "./lib",
+    "sourceMap": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "declaration": true,            /* When you building packages, this should be true. */ 
+    "strictPropertyInitialization": false,
+    "experimentalDecorators": true  /* Enables experimental support for ES7 decorators. */,
+    "emitDecoratorMetadata": true   /* Enables experimental support for emitting type metadata for decorators. */
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "**/__tests__/*"]
+}
