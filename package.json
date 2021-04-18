@@ -1,8 +1,9 @@
 {
   "name": "quboqin-lib-typescript",
   "version": "1.0.2",
-  "description": "",
-  "main": "index.js",
+  "description": "quboqin-lib-typescript",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "tsc",
