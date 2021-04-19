@@ -1,5 +1,5 @@
 export interface Item {
-  id: string
+  itemId: string
   name?: string
   createdAt?: number
 }
