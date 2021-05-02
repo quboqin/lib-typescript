@@ -1,8 +1,8 @@
 export enum ServerEnvTag {
-  PRODUCTION = 'production',
-  STAGING = 'staging',
-  TEST = 'test',
-  DEV = 'development',
+  HEROKU = 'heroku',
+  AWS = 'aws',
+  ALIYUN = 'allyun',
+  ORACLE = 'oracle',
 }
 
 export enum PAYMENT_TYPE {
