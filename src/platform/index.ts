@@ -1,13 +1,13 @@
 export enum ServerEnvTag {
-  HEROKU = 'heroku',
-  AWS = 'aws',
-  ALIYUN = 'allyun',
-  ORACLE = 'oracle',
+  HEROKU = 'HEROKU',
+  AWS = 'AWS',
+  ALIYUN = 'ALIYUN',
+  ORACLE = 'ORACLE',
 }
 
 export enum PAYMENT_TYPE {
-  WECHAT = 'wechat',
-  ALIPAY = 'alipay',
-  STRIPE_ONLINE = 'stripe_online',
-  STRIPE_TEST = 'stripe_test',
+  WECHAT = 'WECHAT',
+  ALIPAY = 'ALIPAY',
+  STRIPE_ONLINE = 'STRIPE_ONLINE',
+  STRIPE_TEST = 'STRIPE_TEST',
 }
