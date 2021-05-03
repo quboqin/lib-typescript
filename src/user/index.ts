@@ -16,11 +16,11 @@ export enum UserType {
 }
 @Entity()
 export class User {
-  @PrimaryColumn()
-  phone: string
+  @PrimaryColumn({ default: uuidv4() })
+  userId: string
 
-  @Column({ default: uuidv4() })
-  userId?: string
+  @Column()
+  phone: string
 
   @Column({ type: 'bigint', default: new Date().getTime() })
   registerAt?: number
