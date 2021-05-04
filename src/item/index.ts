@@ -14,6 +14,6 @@ export class Item {
   @Column({ type: 'bigint', default: new Date().getTime() })
   createdAt?: number
 
-  @ManyToOne((type) => User, (user) => user.items)
+  @ManyToOne(() => User, (user) => user.items)
   user?: User
 }
