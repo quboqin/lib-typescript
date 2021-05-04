@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
+import { Entity, Column, PrimaryColumn, ManyToOne } from 'typeorm'
 
-import { Entity, Column, PrimaryColumn } from 'typeorm'
+import { User } from '../user'
 
 @Entity()
 export class Item {
@@ -12,4 +13,7 @@ export class Item {
 
   @Column({ type: 'bigint', default: new Date().getTime() })
   createdAt?: number
+
+  @ManyToOne(() => User, (user) => user.items)
+  user?: User
 }
