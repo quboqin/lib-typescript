@@ -46,7 +46,7 @@ export class User {
   @Column({ nullable: true })
   avatorUrl?: string
 
-  @OneToMany(() => Item, (item) => item.user, {
+  @OneToMany((type) => Item, (item) => item.user, {
     nullable: true,
   })
   items?: Item[]
