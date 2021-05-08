@@ -6,7 +6,7 @@ import { User } from '../user'
 @Entity()
 export class Card {
   @PrimaryColumn({ default: uuidv4() })
-  itemId: string
+  cardId: string
 
   @Column({ nullable: true })
   sourceId?: string
