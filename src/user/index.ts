@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
 import { Entity, Column, PrimaryColumn, OneToMany } from 'typeorm'
 
-import { Item } from '../item'
+import { Card } from '../card'
 
 export enum UserGender {
   MALE,
@@ -46,9 +46,9 @@ export class User {
   @Column({ nullable: true })
   avatorUrl?: string
 
-  @OneToMany(() => Item, (item) => item.user, {
+  @OneToMany(() => Card, (card) => card.user, {
     cascade: true,
     nullable: true,
   })
-  items?: Item[]
+  cards?: Card[]
 }
