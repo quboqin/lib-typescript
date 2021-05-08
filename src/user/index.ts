@@ -17,10 +17,10 @@ export enum UserType {
 @Entity()
 export class User {
   @PrimaryColumn({ default: uuidv4() })
-  userId: string
+  userId?: string
 
   @Column()
-  phone: string
+  phone?: string
 
   @Column({ type: 'bigint', default: new Date().getTime() })
   registerAt?: number

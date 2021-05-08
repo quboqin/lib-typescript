@@ -1,4 +1,4 @@
-# Building and publishing an npm typescript package
+## Building and publishing an npm typescript package
 
 1. 创建目录
 
@@ -50,7 +50,7 @@ npm install --save-dev typescript
 echo "/lib" >> .gitignore
 ```
 
-# 配置 eslint
+## 配置 eslint
 
 1. 安装 eslint 和 typescript 相关依赖
 
@@ -91,6 +91,14 @@ module.exports = {
 ```
 
 5. 配置 vscode workspace
+```json
+{
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+}
+```
 
 6. 添加 .eslintignore
 ```
@@ -106,7 +114,7 @@ However, blacklisting files is not a good practice. Every new file/folder added 
   ],
 ```
 
-# Setup Testing with Jest
+## Setup Testing with Jest
 1. 安装 Jest
 ``` shell
 npm install --save-dev jest ts-jest @types/jest
@@ -140,7 +148,8 @@ then try to run
 npm test
 ```
 
-# Use the magic scripts in NPM
+## Use the magic scripts in NPM
+1. 修改脚本
 ``` json
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
@@ -150,8 +159,10 @@ npm test
     "patch": "npm version patch && npm publish"
 ```
 
-# Updating your published package version number
-1. To change the version number in package.json, on the command line, in the package root directory, run the following command, replacing <update_type> with one of the semantic versioning release types (patch, major, or minor):
-
+2. Updating your published package version number
+To change the version number in package.json, on the command line, in the package root directory, run the following command, replacing <update_type> with one of the semantic versioning release types (patch, major, or minor):
+```shell
 npm version <update_type>
-2. Run npm publish.
+```
+
+3. Run npm publish.

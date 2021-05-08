@@ -3,6 +3,13 @@ import { Entity, Column, PrimaryColumn, ManyToOne } from 'typeorm'
 
 import { User } from '../user'
 
+export enum PAYMENT_TYPE {
+  WECHAT = 'WECHAT',
+  ALIPAY = 'ALIPAY',
+  STRIPE_ONLINE = 'STRIPE_ONLINE',
+  STRIPE_TEST = 'STRIPE_TEST',
+}
+
 @Entity()
 export class Card {
   @PrimaryColumn({ default: uuidv4() })
