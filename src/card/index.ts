@@ -9,6 +9,9 @@ export class Card {
   cardId?: string
 
   @Column({ nullable: true })
+  stripeToken?: string
+
+  @Column({ nullable: true })
   sourceId?: string
 
   @Column({ nullable: true })
