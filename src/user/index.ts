@@ -3,7 +3,7 @@ import { Entity, Column, PrimaryColumn, OneToMany } from 'typeorm'
 
 import { attribute } from '@aws/dynamodb-data-mapper-annotations'
 
-import { Item } from '../item'
+import { Card } from '../card'
 
 export enum UserGender {
   MALE,
@@ -20,11 +20,11 @@ export enum UserType {
 export class User {
   @PrimaryColumn({ default: uuidv4() })
   @attribute({ defaultProvider: () => uuidv4() })
-  userId: string
+  userId?: string
 
   @Column()
   @attribute()
-  phone: string
+  phone?: string
 
   @Column({ type: 'bigint', default: new Date().getTime() })
   @attribute({ defaultProvider: () => new Date().getTime() })
@@ -58,10 +58,10 @@ export class User {
   @attribute()
   avatorUrl?: string
 
-  @OneToMany(() => Item, (item) => item.user, {
+  @OneToMany(() => Card, (card) => card.user, {
     cascade: true,
     nullable: true,
   })
   @attribute()
-  items?: Item[]
+  cards?: Card[]
 }
