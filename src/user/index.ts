@@ -52,6 +52,7 @@ export class User {
   @OneToMany(() => Card, (card) => card.owner, {
     cascade: true,
     nullable: true,
+    eager: true,
   })
   @attribute()
   cards?: Card[]
@@ -59,6 +60,7 @@ export class User {
   @OneToMany(() => Task, (task) => task.owner, {
     cascade: true,
     nullable: true,
+    eager: true,
   })
   @attribute()
   tasks?: Task[]
@@ -66,6 +68,7 @@ export class User {
   @OneToMany(() => Order, (order) => order.owner, {
     cascade: true,
     nullable: true,
+    eager: true,
   })
   @attribute()
   orders?: Order[]
