@@ -4,7 +4,6 @@ import { attribute } from '@aws/dynamodb-data-mapper-annotations'
 
 import { Task } from '../task'
 import { Card } from '../card'
-import { Order } from '../order'
 
 export enum UserGender {
   MALE,
@@ -52,7 +51,6 @@ export class User {
   @OneToMany(() => Card, (card) => card.owner, {
     cascade: true,
     nullable: true,
-    eager: true,
   })
   @attribute()
   cards?: Card[]
@@ -60,16 +58,7 @@ export class User {
   @OneToMany(() => Task, (task) => task.owner, {
     cascade: true,
     nullable: true,
-    eager: true,
   })
   @attribute()
   tasks?: Task[]
-
-  @OneToMany(() => Order, (order) => order.owner, {
-    cascade: true,
-    nullable: true,
-    eager: true,
-  })
-  @attribute()
-  orders?: Order[]
 }
