@@ -1,38 +1,29 @@
 import { v4 as uuidv4 } from 'uuid'
 import { Entity, Column, PrimaryColumn, OneToMany } from 'typeorm'
-
 import { attribute } from '@aws/dynamodb-data-mapper-annotations'
 
+import { Task } from '../task'
 import { Card } from '../card'
+import { Order } from '../order'
 
 export enum UserGender {
   MALE,
   FEMALE,
   UNKNOWN,
 }
-
-export enum UserType {
-  CUSTOMER = 'CUSTOMER',
-  SALES = 'SALES',
-  ADMIN = 'ADMIN',
-}
 @Entity()
 export class User {
   @PrimaryColumn({ default: uuidv4() })
   @attribute({ defaultProvider: () => uuidv4() })
-  userId?: string
+  id?: string
 
   @Column()
   @attribute()
   phone?: string
 
-  @Column({ type: 'bigint', default: new Date().getTime() })
-  @attribute({ defaultProvider: () => new Date().getTime() })
-  registerAt?: number
-
-  @Column({ type: 'bigint', default: new Date().getTime() })
-  @attribute({ defaultProvider: () => new Date().getTime() })
-  lastLoginAt?: number
+  @Column({ nullable: true })
+  @attribute()
+  email?: string
 
   @Column({ nullable: true })
   @attribute()
@@ -42,14 +33,6 @@ export class User {
   @attribute()
   lastName?: string
 
-  @Column({ nullable: true })
-  @attribute()
-  email?: string
-
-  @Column({ nullable: true })
-  @attribute()
-  birthday?: string
-
   @Column({ type: 'enum', enum: UserGender, default: UserGender.UNKNOWN })
   @attribute()
   gender?: UserGender
@@ -58,10 +41,32 @@ export class User {
   @attribute()
   avatorUrl?: string
 
-  @OneToMany(() => Card, (card) => card.user, {
+  @Column({ type: 'bigint', default: new Date().getTime() })
+  @attribute({ defaultProvider: () => new Date().getTime() })
+  registerAt?: number
+
+  @Column({ type: 'bigint', default: new Date().getTime() })
+  @attribute({ defaultProvider: () => new Date().getTime() })
+  lastLoginAt?: number
+
+  @OneToMany(() => Card, (card) => card.owner, {
     cascade: true,
     nullable: true,
   })
   @attribute()
   cards?: Card[]
+
+  @OneToMany(() => Task, (task) => task.owner, {
+    cascade: true,
+    nullable: true,
+  })
+  @attribute()
+  tasks?: Task[]
+
+  @OneToMany(() => Order, (order) => order.owner, {
+    cascade: true,
+    nullable: true,
+  })
+  @attribute()
+  orders?: Order[]
 }
