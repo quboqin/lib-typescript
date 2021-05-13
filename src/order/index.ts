@@ -1,9 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm'
 import { attribute } from '@aws/dynamodb-data-mapper-annotations'
-
-import { User } from '../user'
-
 @Entity()
 export class Order {
   @PrimaryGeneratedColumn('uuid')
@@ -17,10 +14,6 @@ export class Order {
   @Column({ type: 'bigint', default: new Date().getTime() })
   @attribute({ defaultProvider: () => new Date().getTime() })
   paidAt?: number
-
-  @ManyToOne(() => User, (user) => user.cards)
-  @attribute()
-  owner?: string
 
   @Column({ nullable: true })
   @attribute()
