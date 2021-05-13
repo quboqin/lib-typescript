@@ -48,17 +48,17 @@ export class User {
   @attribute({ defaultProvider: () => new Date().getTime() })
   lastLoginAt?: number
 
-  @OneToMany(() => Card, (card) => card.owner, {
-    cascade: true,
-    nullable: true,
-  })
-  @attribute()
-  cards?: Card[]
+  // @OneToMany(() => Card, (card) => card.owner, {
+  //   cascade: true,
+  //   nullable: true,
+  // })
+  // @attribute()
+  // cards?: Card[]
 
-  @OneToMany(() => Task, (task) => task.owner, {
-    cascade: true,
-    nullable: true,
-  })
-  @attribute()
-  tasks?: Task[]
+  // @OneToMany(() => Task, (task) => task.owner, {
+  //   cascade: true,
+  //   nullable: true,
+  // })
+  // @attribute()
+  // tasks?: Task[]
 }
