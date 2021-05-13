@@ -41,7 +41,9 @@ export class Card {
   @attribute()
   last4?: string
 
-  @ManyToOne(() => User, (user) => user.cards)
+  @ManyToOne(() => User, {
+    createForeignKeyConstraints: false,
+  })
   @attribute()
   owner?: User
 }
