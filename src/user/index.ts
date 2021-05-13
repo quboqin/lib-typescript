@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, PrimaryColumn } from 'typeorm'
 import { attribute } from '@aws/dynamodb-data-mapper-annotations'
 
 import { Task } from '../task'
@@ -12,11 +12,11 @@ export enum UserGender {
 }
 @Entity()
 export class User {
-  @PrimaryGeneratedColumn('uuid')
+  @Column({ default: uuidv4() })
   @attribute({ defaultProvider: () => uuidv4() })
   id?: string
 
-  @Column()
+  @PrimaryColumn()
   @attribute()
   phone?: string
 
