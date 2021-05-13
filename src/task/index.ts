@@ -1,8 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
 import { attribute } from '@aws/dynamodb-data-mapper-annotations'
-
-import { User } from '../user'
 
 export enum TASK_PRIORITY {
   HIGH = 'HIGH',
@@ -43,8 +41,4 @@ export class Task {
   @Column({ nullable: true })
   @attribute()
   description?: string
-
-  // @ManyToOne(() => User, (user) => user.tasks)
-  // @attribute()
-  // owner?: string
 }

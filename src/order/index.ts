@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
 import { attribute } from '@aws/dynamodb-data-mapper-annotations'
 @Entity()
 export class Order {

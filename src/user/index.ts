@@ -1,9 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
 import { attribute } from '@aws/dynamodb-data-mapper-annotations'
-
-import { Task } from '../task'
-import { Card } from '../card'
 
 export enum UserGender {
   MALE,
