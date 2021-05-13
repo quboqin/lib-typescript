@@ -1,6 +1,9 @@
 import { v4 as uuidv4 } from 'uuid'
-import { Entity, Column, PrimaryColumn } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm'
 import { attribute } from '@aws/dynamodb-data-mapper-annotations'
+
+import { Task } from '../task'
+import { Card } from '../card'
 
 export enum UserGender {
   MALE,
@@ -9,7 +12,7 @@ export enum UserGender {
 }
 @Entity()
 export class User {
-  @PrimaryColumn({ default: uuidv4() })
+  @PrimaryGeneratedColumn('uuid')
   @attribute({ defaultProvider: () => uuidv4() })
   id?: string
 
@@ -44,4 +47,18 @@ export class User {
   @Column({ type: 'bigint', default: new Date().getTime() })
   @attribute({ defaultProvider: () => new Date().getTime() })
   lastLoginAt?: number
+
+  @OneToMany(() => Card, (card) => card.owner, {
+    cascade: true,
+    nullable: true,
+  })
+  @attribute()
+  cards?: Card[]
+
+  @OneToMany(() => Task, (task) => task.owner, {
+    cascade: true,
+    nullable: true,
+  })
+  @attribute()
+  tasks?: Task[]
 }

@@ -1,6 +1,8 @@
 import { v4 as uuidv4 } from 'uuid'
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm'
 import { attribute } from '@aws/dynamodb-data-mapper-annotations'
+
+import { User } from '../user'
 
 export enum PAYMENT_TYPE {
   WECHAT = 'WECHAT',
@@ -38,4 +40,8 @@ export class Card {
   @Column({ nullable: true })
   @attribute()
   last4?: string
+
+  @ManyToOne(() => User, (user) => user.cards)
+  @attribute()
+  owner?: User
 }
