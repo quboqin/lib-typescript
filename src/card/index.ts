@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm'
+import { Entity, Column, PrimaryColumn, ManyToOne } from 'typeorm'
 import { attribute } from '@aws/dynamodb-data-mapper-annotations'
 
 import { User } from '../user'
@@ -13,7 +13,7 @@ export enum PAYMENT_TYPE {
 
 @Entity()
 export class Card {
-  @PrimaryGeneratedColumn('uuid')
+  @Column({ default: uuidv4() })
   @attribute({ defaultProvider: () => uuidv4() })
   id?: string
 
@@ -37,7 +37,7 @@ export class Card {
   @attribute()
   expirationYear?: number
 
-  @Column({ nullable: true })
+  @PrimaryColumn()
   @attribute()
   last4?: string
 
