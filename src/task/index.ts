@@ -42,7 +42,7 @@ export class Task {
   @attribute()
   description?: string
 
-  @ManyToOne(() => User, (user) => user.cards)
+  @ManyToOne(() => User, (user) => user.tasks)
   @attribute()
   owner?: string
 }
