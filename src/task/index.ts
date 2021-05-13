@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm'
+import { Entity, Column, PrimaryColumn, ManyToOne } from 'typeorm'
 import { attribute } from '@aws/dynamodb-data-mapper-annotations'
 
 import { User } from '../user'
@@ -18,11 +18,11 @@ export enum TASK_STATUS {
 
 @Entity()
 export class Task {
-  @PrimaryGeneratedColumn('uuid')
+  @Column({ default: uuidv4() })
   @attribute({ defaultProvider: () => uuidv4() })
   id?: string
 
-  @Column({ nullable: true })
+  @PrimaryColumn()
   @attribute()
   title?: string
 
@@ -42,7 +42,9 @@ export class Task {
   @attribute()
   description?: string
 
-  @ManyToOne(() => User, (user) => user.tasks)
+  @ManyToOne(() => User, {
+    createForeignKeyConstraints: false,
+  })
   @attribute()
   owner?: string
 }
