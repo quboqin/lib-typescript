@@ -51,6 +51,7 @@ export class User {
   @OneToMany(() => Card, (card) => card.owner, {
     cascade: true,
     eager: true,
+    onDelete: 'CASCADE',
     nullable: true,
   })
   @attribute()
@@ -59,6 +60,7 @@ export class User {
   @OneToMany(() => Task, (task) => task.owner, {
     cascade: true,
     eager: true,
+    onDelete: 'CASCADE',
     nullable: true,
   })
   @attribute()
