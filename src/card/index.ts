@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
-import { Entity, Column, PrimaryColumn, ManyToOne } from 'typeorm'
+import { Entity, Column, PrimaryColumn, ManyToOne, JoinColumn } from 'typeorm'
 import { attribute } from '@aws/dynamodb-data-mapper-annotations'
 
 import { User } from '../user'
@@ -44,6 +44,7 @@ export class Card {
   @ManyToOne(() => User, (user) => user.cards, {
     createForeignKeyConstraints: false,
   })
+  @JoinColumn()
   @attribute()
   owner?: User
 }
