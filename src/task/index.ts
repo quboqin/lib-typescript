@@ -43,7 +43,7 @@ export class Task {
   description?: string
 
   @ManyToOne(() => User, (user) => user.tasks, {
-    createForeignKeyConstraints: false,
+    createForeignKeyConstraints: true,
   })
   @JoinColumn()
   @attribute()

@@ -42,7 +42,7 @@ export class Card {
   last4?: string
 
   @ManyToOne(() => User, (user) => user.cards, {
-    createForeignKeyConstraints: false,
+    createForeignKeyConstraints: true,
   })
   @JoinColumn()
   @attribute()
