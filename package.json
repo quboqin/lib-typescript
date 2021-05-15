@@ -13,7 +13,7 @@
     "preversion": "npm run lint",
     "version": "git add -A src",
     "postversion": "git push && git push --tags",
-    "patch": "npm version patch && npm publish"
+    "patch": "rm -rf lib && npm version patch && npm publish"
   },
   "keywords": [],
   "author": "",
