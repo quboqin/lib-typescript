@@ -34,11 +34,13 @@ export class Order {
   paidAt?: number
 
   @Column({ nullable: true })
-  cardId?: string
+  last4?: string
 
   @ManyToOne(() => User, (user) => user.orders)
   owner: User
 
-  @OneToMany(() => Item, (item) => item.order)
+  @OneToMany(() => Item, (item) => item.order, {
+    cascade: true,
+  })
   items: Item[]
 }
