@@ -1,25 +1,12 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne } from 'typeorm'
+
 import { User } from '../user'
+import { Item } from '../item'
 
 export enum OrderStatus {
   UNPAID = '未支付',
   PAID = '已支付',
   DELIVERED = '已完成',
-}
-
-@Entity()
-export class Item {
-  @PrimaryGeneratedColumn()
-  id: number
-
-  @Column()
-  amount: number
-
-  @Column()
-  goodsId: string
-
-  @ManyToOne(() => Order, (order) => order.items)
-  order: Order
 }
 
 @Entity()
