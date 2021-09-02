@@ -32,9 +32,7 @@ export class Card {
   @Column()
   last4: string
 
-  @ManyToOne(() => User, (user) => user.cards, {
-    createForeignKeyConstraints: false,
-  })
+  @ManyToOne(() => User, (user) => user.cards)
   owner?: User
 
   @Column()
