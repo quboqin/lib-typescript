@@ -40,6 +40,8 @@ export class User {
   lastLoginAt?: number
 
   @OneToMany(() => Card, (card) => card.owner, {
+    cascade: true,
+    eager: true,
     nullable: true,
   })
   cards?: Card[]
