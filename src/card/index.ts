@@ -24,7 +24,7 @@ export class Card {
   country: string
 
   @Column()
-  expirationMonth?: number
+  expirationMonth: number
 
   @Column()
   expirationYear: number
