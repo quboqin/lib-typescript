@@ -14,9 +14,9 @@ export class Good {
   @Column({ nullable: true })
   imgUrl?: string
 
-  @Column()
+  @Column('double')
   price: number
 
-  @Column({ nullable: true })
+  @Column('double', { nullable: true })
   discount?: number
 }
