@@ -18,7 +18,4 @@ export class Address {
 
   @ManyToOne(() => User, (user) => user.addresses)
   owner: User
-
-  @Column()
-  isDefault: boolean
 }

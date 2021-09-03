@@ -36,7 +36,4 @@ export class Card {
     createForeignKeyConstraints: false,
   })
   owner?: User
-
-  @Column()
-  isDefault: boolean
 }
