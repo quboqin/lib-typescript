@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
+import { Entity, PrimaryColumn, Column, OneToMany } from 'typeorm'
 
 import { Order } from '../order'
 import { Card } from '../card'
@@ -12,11 +12,8 @@ export enum UserGender {
 
 @Entity()
 export class User {
-  @PrimaryGeneratedColumn()
-  id: number
-
-  @Column({ nullable: true })
-  phone?: string
+  @PrimaryColumn()
+  phone: string
 
   @Column({ nullable: true })
   email?: string
