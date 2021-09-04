@@ -11,9 +11,6 @@ export enum PAYMENT_TYPE {
 
 @Entity()
 export class Card {
-  @PrimaryColumn()
-  id: string
-
   @Column()
   customerId: string
 
@@ -29,7 +26,7 @@ export class Card {
   @Column()
   expirationYear: number
 
-  @Column()
+  @PrimaryColumn()
   last4: string
 
   @ManyToOne(() => User, (user) => user.cards)
