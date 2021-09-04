@@ -8,6 +8,9 @@ export class Item {
   id: number
 
   @Column()
+  name: string
+
+  @Column()
   amount: number
 
   @Column()
