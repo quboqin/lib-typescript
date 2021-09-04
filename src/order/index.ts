@@ -23,6 +23,15 @@ export class Order {
   @Column({ nullable: true })
   last4?: string
 
+  @Column({ type: 'enum', enum: OrderStatus, default: OrderStatus.UNPAID })
+  status: OrderStatus
+
+  @Column({ type: 'real', default: 0.0 })
+  totalPrice: number
+
+  @Column({ type: 'real', default: 0.0 })
+  tax: number
+
   @ManyToOne(() => User, (user) => user.orders)
   owner: User
 
