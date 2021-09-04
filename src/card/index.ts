@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm'
+import { Entity, Column, PrimaryColumn, ManyToOne } from 'typeorm'
 
 import { User } from '../user'
 
@@ -11,8 +11,8 @@ export enum PAYMENT_TYPE {
 
 @Entity()
 export class Card {
-  @PrimaryGeneratedColumn()
-  id: number
+  @PrimaryColumn()
+  id: string
 
   @Column()
   customerId: string

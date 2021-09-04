@@ -36,8 +36,8 @@ export class User {
   @Column({ type: 'bigint', default: new Date().getTime() })
   lastLoginAt?: number
 
-  @Column({ default: 0 })
-  defaultCard?: number
+  @Column({ default: '' })
+  defaultCard?: string
 
   @OneToMany(() => Card, (card) => card.owner, {
     cascade: true,
@@ -46,8 +46,8 @@ export class User {
   })
   cards?: Card[]
 
-  @Column({ default: 0 })
-  defaultAddress?: number
+  @Column({ default: '' })
+  defaultAddress?: string
 
   @OneToMany(() => Address, (address) => address.owner, {
     cascade: true,

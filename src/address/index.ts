@@ -1,11 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm'
+import { Entity, PrimaryColumn, Column, ManyToOne } from 'typeorm'
 
 import { User } from '../user'
 
 @Entity()
 export class Address {
-  @PrimaryGeneratedColumn()
-  id: number
+  @PrimaryColumn()
+  id: string
 
   @Column()
   zipCode: string
