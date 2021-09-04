@@ -29,6 +29,9 @@ export class Order {
   @Column({ type: 'real', default: 0.0 })
   totalPrice: number
 
+  @Column()
+  customerId: string
+
   @Column({ type: 'real', default: 0.0 })
   tax: number
 
