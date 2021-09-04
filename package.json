@@ -1,6 +1,6 @@
 {
   "name": "quboqin-lib-typescript",
-  "version": "9.0.16",
+  "version": "9.0.17",
   "description": "quboqin-lib-typescript",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
