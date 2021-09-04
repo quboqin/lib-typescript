@@ -16,6 +16,9 @@ export class Item {
   @Column({ nullable: true })
   imgUrl?: string
 
+  @Column('real')
+  price: number
+
   @ManyToOne(() => Order, (order) => order.items)
   order: Order
 }
