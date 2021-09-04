@@ -36,7 +36,7 @@ export class User {
   @Column({ type: 'bigint', default: new Date().getTime() })
   lastLoginAt?: number
 
-  @Column({ default: -1 })
+  @Column({ default: 0 })
   defaultCard?: number
 
   @OneToMany(() => Card, (card) => card.owner, {
@@ -46,7 +46,7 @@ export class User {
   })
   cards?: Card[]
 
-  @Column({ default: -1 })
+  @Column({ default: 0 })
   defaultAddress?: number
 
   @OneToMany(() => Address, (address) => address.owner, {
