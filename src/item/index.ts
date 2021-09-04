@@ -11,7 +11,10 @@ export class Item {
   amount: number
 
   @Column()
-  goodsId: string
+  goodsId: number
+
+  @Column({ nullable: true })
+  imgUrl?: string
 
   @ManyToOne(() => Order, (order) => order.items)
   order: Order
