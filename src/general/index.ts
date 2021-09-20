@@ -3,10 +3,10 @@ enum ERROR_CODE {
   UNKNOW_ERROR,
 }
 
-declare interface BODY {
+declare class Body {
   code: ERROR_CODE
   data?: unknown
   message?: string
 }
 
-export { BODY, ERROR_CODE }
+export { Body, ERROR_CODE }
