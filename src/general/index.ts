@@ -3,7 +3,7 @@ enum ERROR_CODE {
   UNKNOW_ERROR,
 }
 
-declare class Body {
+class Body {
   code: ERROR_CODE
   data?: unknown
   message?: string
